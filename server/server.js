@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
+const cors = require('cors');
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 dotenv.config({
@@ -8,6 +9,7 @@ dotenv.config({
 })
 
 // Middlewares
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static('public'));
