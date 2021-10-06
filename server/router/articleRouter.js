@@ -3,7 +3,7 @@ const multer = require("multer");
 const upload = multer({ dest: "public/image" });
 const router = express.Router();
 // const protect = require("../middleware/protect");
-const { addArticle,changearticleInfo,getOnearticle } = require("../controller/articleController");
+const { addArticle,changearticleInfo,getOnearticle, lastArticles } = require("../controller/articleController");
 
 
 
@@ -11,7 +11,7 @@ const { addArticle,changearticleInfo,getOnearticle } = require("../controller/ar
 router.post("/article", addArticle);
 router.put("/article/:title", changearticleInfo);
 router.get("/article/:title", getOnearticle);
-
+router.get("/article/new/lastArticles", lastArticles);
 
 
 
