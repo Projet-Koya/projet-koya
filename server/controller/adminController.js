@@ -1,4 +1,4 @@
-const User = require("../model/userModel");
+const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
@@ -68,11 +68,11 @@ const addlogin = async (req, res)=> {
 
 // Here we change users information
 const changeUserInfo=async(req,res)=>{
-    const { name, lastName, email, password, isAdmin } = req.params
+    const userEmail = req.params.email
+    // const { name, lastName, email, password, isAdmin } = req.params;
     const { name, lastName, email, password, isAdmin } = req.body;
     try{
-    await User.findOneAndUpdate({ name, lastName, email, password, isAdmin },  { name, lastName, email, password, isAdmin })
-      
+    await User.findOneAndUpdate( userEmail,  { name, lastName, email, password, isAdmin })
       res.json({
           message: "contact updated"
       })
@@ -83,7 +83,13 @@ const changeUserInfo=async(req,res)=>{
       });}
 }
 
-
+// Logout the user 
+const userLogout = async (req, res) =>{
+    res.clearCookie('jwt');
+    res.json({
+        messsage: 'you are disconnected ! :)',
+    })
+};
 
 
 
@@ -106,5 +112,6 @@ module.exports = {
     addUser,
     deleteUser,
     addlogin,
-    changeUserInfo
+    changeUserInfo,
+    userLogout
 }

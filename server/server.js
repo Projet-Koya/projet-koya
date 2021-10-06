@@ -10,6 +10,7 @@ dotenv.config({
 // Middlewares
 app.use(express.json());
 app.use(cookieParser());
+app.use(express.static('public'));
 
 // Connecto to MongoDB
 mongoose.connect(process.env.DB,{useNewUrlParser:true,}).then( ()=> {
@@ -18,9 +19,10 @@ mongoose.connect(process.env.DB,{useNewUrlParser:true,}).then( ()=> {
 
 // import Router
 const adminRouter = require("./router/adminRouter");
-// const categoryRouter = require("./router/categoryRouter");
+const categoryRouter = require("./router/categoryRouter");
 
 app.use("/api", adminRouter);
+app.use("/cat", categoryRouter);
 
 
 // Server
