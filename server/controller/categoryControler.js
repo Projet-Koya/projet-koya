@@ -2,14 +2,14 @@ const Category = require("../models/categoryModel")
 const bcrypt = require("bcrypt");
 const fs = require("fs");
 const jwt = require("jsonwebtoken");
-const path = require("path")
+const path = require("path");
 
 // Here we add a categry (only name)
-const addCategory = async ( req,res )=> {
-    const {name} = req.body;
+const addCategory = async (req, res) => {
+    const { name } = req.body;
     try {
-        await Category.create({ name : name, picture: `/image/${name}.png`})
-    } catch(err) {
+        await Category.create({ name: name, picture: `/image/${name}.png` })
+    } catch (err) {
         console.log(err);
         return res.status(400).json({
             message: "Couldnt add new Category"
@@ -21,16 +21,18 @@ const addCategory = async ( req,res )=> {
 
 
 // Here we add the category's picture 
-const uploadImage = async (req,res)=> {
+const uploadImage = async (req, res) => {
     console.log(req.file);
     await fs.renameSync(req.file.path, path.join(req.file.destination, req.file.originalname));
-  res.status(201).json({
-      message:"Image added"
-  })
+    res.status(201).json({
+        message: "Image added"
+    })
 }
 
 // Here we get all the category name and picture 
-const categoryList = async (req,res) => {
+
+const categoryList = async (req, res) => {
+
     try {
         const allCategory = await Category.find();
         res.json({
@@ -49,9 +51,8 @@ const categoryList = async (req,res) => {
 
 
 
-module.exports ={
+module.exports = {
     addCategory,
     uploadImage,
     categoryList,
-
 }
