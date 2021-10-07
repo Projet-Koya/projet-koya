@@ -8,12 +8,16 @@ import Admin from './Components/Admin';
 import NavbarComponent from './Components/NavbarComponent';
 
 export const LoginContext = React.createContext();
+export const UserCredentials = React.createContext()
 
 const App = () => {
   const [LogStatus, setLogStatus] = useState(false);
+  const [EmailUser, setUserEmail] = useState()
   const value = {
     LogStatus: LogStatus,
-    setLogStatus: setLogStatus
+    setLogStatus: setLogStatus,
+    EmailUser: EmailUser,
+    setUserEmail: setUserEmail
   };
   return (
     <LoginContext.Provider value={value}>
@@ -32,7 +36,6 @@ const App = () => {
           <Route path="/">
             <Home />
           </Route>
-
         </Switch>
       </BrowserRouter>
     </LoginContext.Provider>
