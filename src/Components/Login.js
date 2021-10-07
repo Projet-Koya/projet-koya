@@ -12,7 +12,7 @@ const Login = () => {
     const history = useHistory();
 
     const onSubmit = () => {
-        fetch("http://localhost:3000/user/login", {
+        fetch("http://localhost:3001/api/user/login", {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
@@ -25,7 +25,8 @@ const Login = () => {
         })
             .then(res => res.json())
             .then(res => {
-                if (res.cookie) {
+                console.log(res);
+                if (res.message === "user match") {
                     LoginStatus.setLogStatus(true);
                     history.push("/");
                 } else {

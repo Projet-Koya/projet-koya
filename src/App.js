@@ -4,26 +4,35 @@ import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import Login from './Components/Login';
 import Home from './Components/Home';
 import Article from './Components/Article';
+import Admin from './Components/Admin';
 import NavbarComponent from './Components/NavbarComponent';
 
 export const LoginContext = React.createContext();
 
 const App = () => {
   const [LogStatus, setLogStatus] = useState(false);
+  const value = {
+    LogStatus: LogStatus,
+    setLogStatus: setLogStatus
+  };
   return (
-    <LoginContext.Provider value={LogStatus}>
+    <LoginContext.Provider value={value}>
       <BrowserRouter>
         <NavbarComponent />
         <Switch>
-          <Route path="/Login">
+          <Route path="/login">
             <Login />
           </Route>
-          <Route path="/Article/:id">
+          <Route path="/admin">
+            <Admin />
+          </Route>
+          <Route path="/article/:title">
             <Article />
           </Route>
           <Route path="/">
             <Home />
           </Route>
+
         </Switch>
       </BrowserRouter>
     </LoginContext.Provider>
