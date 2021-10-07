@@ -3,37 +3,42 @@ import { useParams } from 'react-router';
 
 const Article = () => {
     const [data, setData] = useState();
-    const [comments, setComments] = useState()
-    const params = useParams()
+    const [comments, setComments] = useState();
+    const [isLoading, setIsLoading] = useState(true);
+    const { title } = useParams();
 
     // Recuperation de l'article choisi dans la base de données
     useEffect(() => {
+        console.log(title);
         fetch(
-            `base de données/articles/${params}`)
+            `http://localhost:3001/art/article/${title}`)
             .then(res => res.json())
-            .then(res => setData(res))
-            .then(console.log(data));
-    }, [] );
+            .then(res => {
+                setData(res);
+                setIsLoading(false);
+            });
+    }, []);
 
-    useEffect(() => {
-        fetch(`base de données/commentaires liés à l'article`)
-        .then(res => res.json())
-        // Fonction ici pour prendre direct les commentaires validés ?
-        .then(res => setComments(res))
-        .then(console.log(comments))
-    }, [])
+
+    // useEffect(() => {
+    //     fetch(`base de données/commentaires liés à l'article`)
+    //     .then(res => res.json())
+    //     // Fonction ici pour prendre direct les commentaires validés ?
+    //     .then(res => setComments(res))
+    //     .then(console.log(comments))
+    // }, [])
 
     // Filtrer les commentaires validés
-    const validComments = comments.filter(comment => comment.isValid === true)
-return (
-    <div>
-        <h1>{data.title}</h1>
-        <p>{data.content}</p>
-        {/* Date + Auteur */}
+    //  const validComments = comments.filter(comment => comment.isValid === true)
 
-
-        {/*  */}
+    if (isLoading === true) { return null; }
+    return (
         <div>
+            <h1>{data.data.title}</h1>
+            <p>{data.data.text}</p>
+
+            {/*  */}
+            {/* <div>
             <ul>
                 {validComments.map(comment =>
                  ( 
@@ -46,9 +51,9 @@ return (
                      )
             ))}
             </ul>
+        </div> */}
         </div>
-    </div>
-)
-}
+    );
+};
 
 export default Article;
