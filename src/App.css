@@ -1,0 +1,38 @@
+/* 
+===========================
+    COLORS DECLARATION
+===========================
+*/
+:root {
+    --koya-primary: #085E6D;
+    --koya-secondary: #EE525E;
+}
+
+/* 
+===========================
+    FONTS DECLARATION
+===========================
+*/
+
+
+/* 
+===========================
+    T Y P O G R A P H Y
+===========================
+*/
+
+.bg-koya-primary {
+    background: var(--koya-primary);
+}
+
+.bg-koya-secondary {
+    background:  var(--koya-secondary);
+}
+
+.t-koya-primary {
+    color: var(--koya-primary);
+}
+
+.t-koya-secondary {
+    color: var(--koya-secondary);
+}
