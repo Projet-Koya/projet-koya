@@ -9,9 +9,13 @@ const ArticleSchema = new mongoose.Schema({
     userID: { type: mongoose.Types.ObjectId, ref: "User" },
     title: String,
     text: String,
-    date: String,
+    image: String,
+},
+    {
+        timestamps: true,
+    }
 
-});
+);
 
 
 

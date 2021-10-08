@@ -5,33 +5,33 @@ const jwt = require("jsonwebtoken");
 
 // Adding a new user
 const passwordRegex = /(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,})$/
-const addUser = async (req, res ) => {
-    const { name,lastName, email, password, isAdmin } = req.body;
+const addUser = async (req, res) => {
+    const { name, lastName, email, password, isAdmin } = req.body;
     const resultPassword = passwordRegex.test(password);
     // Here we hash the password to secure it
     const hashedPassword = await bcrypt.hash(password, 12);
     if (resultPassword) {
-    try {
-        await User.create({ name: name, lastName: lastName, email: email, password: hashedPassword, isAdmin: isAdmin});
+        try {
+            await User.create({ name: name, lastName: lastName, email: email, password: hashedPassword, isAdmin: isAdmin });
         } catch (err) {
             return res.status(400).json({
-                message:"This user already exists",
+                message: "This user already exists",
             });
         }
-        } else (res.status(400).json({
-            message: "Email or password is not valid",
-        }))
-        res.status(201).json({
-            message: `User created with email: ${email}`
-        })
+    } else (res.status(400).json({
+        message: "Email or password is not valid",
+    }))
+    res.status(201).json({
+        message: `User created with email: ${email}`
+    })
 };
 
 // Here we can delete a user or admin with our request
-const deleteUser = async ( req,res )=> {
+const deleteUser = async (req, res) => {
     const email = req.body.email;
     try {
-        const removeUser = await User.deleteOne({ email: email } )
-        if(User) {
+        const removeUser = await User.deleteOne({ email: email })
+        if (User) {
             res.status(201).json({
                 message: "User deleted",
                 data: removeUser
@@ -39,24 +39,24 @@ const deleteUser = async ( req,res )=> {
         }
     } catch (err) {
         return res.status(400).json({
-            message:'Can not delete user...'
+            message: 'Can not delete user...'
         })
     }
 }
 
 // here we try to login with our email and passwrod 
-const addlogin = async (req, res)=> {
-    const { email,password } = req.body;
+const addlogin = async (req, res) => {
+    const { email, password } = req.body;
     const user = await User.findOne({ email: email });
     try {
         const passwordValid = await bcrypt.compare(password, user.password);
-        const token = jwt.sign({ id: user._id}, process.env.JWT_SECRET);
-        if ( passwordValid ) {
-            res.cookie("jwt", token, { httpOnly: true, secure:false });
-            res.json({message:"user match"})
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+        if (passwordValid) {
+            res.cookie("jwt", token, { httpOnly: true, secure: false });
+            res.json({ message: "user match" })
         } else {
             res.json({
-                message:"Password doesnt match..."
+                message: "Password doesnt match..."
             })
         }
     } catch (err) {
@@ -67,24 +67,24 @@ const addlogin = async (req, res)=> {
 }
 
 // Here we change users information
-const changeUserInfo=async(req,res)=>{
+const changeUserInfo = async (req, res) => {
     const userEmail = req.params.email
-    // const { name, lastName, email, password, isAdmin } = req.params;
     const { name, lastName, email, password, isAdmin } = req.body;
-    try{
-    await User.findOneAndUpdate( userEmail,  { name, lastName, email, password, isAdmin })
-      res.json({
-          message: "contact updated"
-      })
+    try {
+        await User.findOneAndUpdate(userEmail, { name, lastName, email, password, isAdmin })
+        res.json({
+            message: "contact updated"
+        })
     }
     catch (err) {
-      return res.status(400).json({
-        message: " user created",
-      });}
+        return res.status(400).json({
+            message: " user created",
+        });
+    }
 }
 
 // Logout the user 
-const userLogout = async (req, res) =>{
+const userLogout = async (req, res) => {
     res.clearCookie('jwt');
     res.json({
         messsage: 'you are disconnected ! :)',
