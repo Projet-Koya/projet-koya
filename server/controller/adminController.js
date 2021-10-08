@@ -44,6 +44,22 @@ const deleteUser = async ( req,res )=> {
     }
 }
 
+// Getting user information with user email
+const idUser = async(req,res) => {
+    const email = req.params.email;
+    try {
+        const getID = await User.findOne({email});
+        res.status(201).json({
+            message: "ID of you User",
+            data: getID
+        })
+    } catch(err) {
+        res.status(400).json({
+            message:"We couldn't find your user's ID"
+        })
+    }
+}
+
 // here we try to login with our email and passwrod 
 const addlogin = async (req, res)=> {
     const { email,password } = req.body;
@@ -106,6 +122,9 @@ const userLogout = async (req, res) =>{
 
 
 
+
+
+
 // exporting
 
 module.exports = {
@@ -113,5 +132,6 @@ module.exports = {
     deleteUser,
     addlogin,
     changeUserInfo,
-    userLogout
+    userLogout,
+    idUser
 }
