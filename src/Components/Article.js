@@ -1,17 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
+import "../css/Article.css"
+
 
 const Article = () => {
     const [data, setData] = useState();
-    const [comments, setComments] = useState();
+    // const [comments, setComments] = useState();
     const [isLoading, setIsLoading] = useState(true);
     const { title } = useParams();
+
+// Method for an option to read more in the text
+const ReadMore = ({ children }) => {
+    const text = children;
+    const [isReadMore, setIsReadMore] = useState(true);
+    const toggleReadMore = () => {
+      setIsReadMore(!isReadMore);
+    };
+    return (
+      <p className="text">
+        {isReadMore ? text.slice(0, 250) : text}
+        <span onClick={toggleReadMore} className="read-or-hide">
+          {isReadMore ? "...read more" : " show less"}
+        </span>
+      </p>
+    );
+  };
 
     // Recuperation de l'article choisi dans la base de données
     useEffect(() => {
         console.log(title);
         fetch(
-            `http://localhost:3001/art/article/${title}`)
+            `http://localhost:3001/art/article/oneArticle/${title}`)
             .then(res => res.json())
             .then(res => {
                 setData(res);
@@ -33,9 +52,18 @@ const Article = () => {
 
     if (isLoading === true) { return null; }
     return (
-        <div>
-            <h1>{data.data.title}</h1>
-            <p>{data.data.text}</p>
+        <>
+        <div className="container flex justify-center mt-10">
+            <div className="flex flex-col mt-10">
+            <h1 className="animate-pulse flex justify-center text-3xl">{data.data.title}</h1>
+            <div className="mt-8 flex justify-center px-10 mx-10 shadow-2xl"><p className="flex justify-center text-color">
+            <ReadMore>
+            {data.data.text}
+            </ReadMore>
+            </p></div>
+            </div>
+            
+            </div>
 
             {/*  */}
             {/* <div>
@@ -52,7 +80,7 @@ const Article = () => {
             ))}
             </ul>
         </div> */}
-        </div>
+        </>
     );
 };
 
