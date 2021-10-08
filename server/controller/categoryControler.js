@@ -22,7 +22,6 @@ const addCategory = async (req, res) => {
 
 // Here we add the category's picture 
 const uploadImage = async (req, res) => {
-    console.log(req.file);
     await fs.renameSync(req.file.path, path.join(req.file.destination, req.file.originalname));
     res.status(201).json({
         message: "Image added"
@@ -32,10 +31,9 @@ const uploadImage = async (req, res) => {
 // Here we get all the category name and picture 
 
 const categoryList = async (req, res) => {
-
     try {
         const allCategory = await Category.find();
-        res.json({
+        res.status(201).json({
             message: "List of all the Categories",
             data: allCategory,
         })

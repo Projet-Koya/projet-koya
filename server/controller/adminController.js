@@ -44,21 +44,21 @@ const deleteUser = async (req, res) => {
     }
 };
 
-const idUser = async (req, res) => {
+// Getting user information with user email
+const idUser = async(req,res) => {
     const email = req.params.email;
-    console.log(email);
     try {
         const getID = await User.findOne({email});
         res.status(201).json({
             message: "ID of you User",
             data: getID
-        });
-    } catch (err) {
+        })
+    } catch(err) {
         res.status(400).json({
-            message: "We couldn't find your user's ID"
-        });
+            message:"We couldn't find your user's ID"
+        })
     }
-};
+}
 
 // here we try to login with our email and passwrod 
 const addlogin = async (req, res) => {
@@ -107,6 +107,9 @@ const userLogout = async (req, res) => {
         messsage: 'you are disconnected ! :)',
     });
 };
+
+
+
 
 
 
