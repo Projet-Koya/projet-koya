@@ -11,7 +11,7 @@ const Article = () => {
     useEffect(() => {
         console.log(title);
         fetch(
-            `http://localhost:3001/art/article/${title}`)
+            `http://localhost:3001/art/article/oneArticle/${title}`)
             .then(res => res.json())
             .then(res => {
                 setData(res);
