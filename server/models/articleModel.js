@@ -1,6 +1,4 @@
 const mongoose = require("mongoose");
-
-
 const ArticleSchema = new mongoose.Schema({
     categoryID: { type: mongoose.Types.ObjectId, ref: "Category" },
     userID: { type: mongoose.Types.ObjectId, ref: "User" },
@@ -9,7 +7,7 @@ const ArticleSchema = new mongoose.Schema({
     date: String,
 }
 ,{
-	timestamps: true,
+  timestamps: true,
 });
 
 
