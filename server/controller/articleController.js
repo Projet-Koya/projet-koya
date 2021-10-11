@@ -45,29 +45,29 @@ const changearticleInfo = async (req, res) => {
 
 
 // Getting an article with its title
-const getOnearticle = async(req,res) =>{
-    const articleTitle= req.params;
+const getOnearticle = async (req, res) => {
+    const articleTitle = req.params;
     try {
-    const onlyArticle =  await Article.findOne(articleTitle).populate("userID");
-    res.status(201).json({
-        message:"Article that you are clicked",
-        data: onlyArticle
-    })
-    } catch(err){
+        const onlyArticle = await Article.findOne(articleTitle).populate("userID");
+        res.status(201).json({
+            message: "Article that you are clicked",
+            data: onlyArticle
+        })
+    } catch (err) {
         return res.status(400).json({
-            message:"Article that you are searching for doesnt exist"
+            message: "Article that you are searching for doesnt exist"
         })
     }
 }
 
 
 // Getting articles by id
-const articleID = async( req,res )=> {
+const articleID = async (req, res) => {
     const articlByeId = req.params.id;
     try {
         const onlyId = await Article.findById(articlByeId).populate("userID");
         res.status(201).json({
-            message:"Article that you are searching by it's ID",
+            message: "Article that you are searching by it's ID",
             data: onlyId
         })
     } catch (err) {
@@ -82,13 +82,13 @@ const articleID = async( req,res )=> {
 const lastArticles = async (req, res) => {
     try {
         const getAllArticle = await Article.find();
-        const lastArticles = getAllArticle.sort(function(a, b) {return a.createdAt - b.createdAt}).slice(0, 4);
+        const lastArticles = getAllArticle.sort(function (a, b) { return a.createdAt - b.createdAt }).slice(0, 4);
         res.status(201).json({
-            message:"List of last articles",
+            message: "List of last articles",
             data: lastArticles
         })
-        
-    } catch(err) {
+
+    } catch (err) {
         res.status(400).json({
             message: "Couldnt find last articles"
         })
