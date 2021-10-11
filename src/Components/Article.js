@@ -57,9 +57,10 @@ const ReadMore = ({ children }) => {
             <div className="flex flex-col mt-10">
             <h1 className="animate-pulse flex justify-center text-3xl">{data.data.title}</h1>
             <div className="mt-8 flex justify-center px-10 mx-10 shadow-2xl"><p className="flex justify-center text-color">
-            <ReadMore>
-            {data.data.text}
-            </ReadMore>
+            {/* <ReadMore> */}
+               <div dangerouslySetInnerHTML={{ __html: data.data.text }}>
+               </div>
+            {/* </ReadMore> */}
             </p></div>
             </div>
             
