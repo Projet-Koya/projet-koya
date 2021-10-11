@@ -10,16 +10,18 @@ import Navbar from './Components/Navbar/Navbar';
 
 
 export const LoginContext = React.createContext();
-export const UserCredentials = React.createContext()
 
 const App = () => {
   const [LogStatus, setLogStatus] = useState(false);
   const [EmailUser, setUserEmail] = useState()
+  const [userID, setUserID] = useState()
   const value = {
     LogStatus: LogStatus,
     setLogStatus: setLogStatus,
     EmailUser: EmailUser,
-    setUserEmail: setUserEmail
+    setUserEmail: setUserEmail,
+    userID: userID,
+    setUserID: setUserID
   };
   return (
     <LoginContext.Provider value={value}>

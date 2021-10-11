@@ -12,7 +12,6 @@ const { addArticle,changearticleInfo,getOnearticle, lastArticles, articleID } = 
 
 router.post("/article", addArticle);
 router.put("/article/:title", changearticleInfo);
-
 router.get("/article/oneArticle/:title", getOnearticle);
 router.get("/article/id/:id", articleID);
 router.get("/article/new/lastArticles", lastArticles);

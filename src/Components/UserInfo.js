@@ -28,9 +28,8 @@ const UserInfo = () => {
             <ul>
                 <form className={Display === true ? myStyle.test2 : myStyle.test}>
                     <label>Email</label>
-                    <input type="text" value={UserEdit.EmailUser}></input>
+                    {/* <input type="text" value={UserEdit.EmailUser}></input> */}
                     {/* <input type="password" value={"password"}></input> */}
-                    <submit></submit>
                 </form>
             </ul>
         </div >

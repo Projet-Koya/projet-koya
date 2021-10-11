@@ -22,6 +22,7 @@ export default function NavbarComponent() {
                 <Nav.Link href={"/blog"}>Blog</Nav.Link>
                 <Nav.Link href={"/login"}>Login</Nav.Link>
                 <Nav.Link href={"/admin"}>Admin</Nav.Link>
+                <Nav.Link href={"/article"}>oneArticle</Nav.Link>
             </Container>
         </Navbar>
     );
