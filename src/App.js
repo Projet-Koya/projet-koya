@@ -1,31 +1,10 @@
-<<<<<<< HEAD
-import React from "react";
-import './App.css'
-import 'bootstrap/dist/css/bootstrap.css';
-
-// Import Components
-import Home from './components/home/Home';
-import Navbar from './components/navbar/Navbar' ;
-import Footer from './components/footer/Footer';
-
-const App = () => {
-    return (
-        <>
-            <Navbar />
-            <Home />
-            <Footer />
-        </>
-    )
-}
-export default App;
-=======
 
 import React, { useState } from 'react';
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import Login from './Components/Login';
 import Home from './Components/Home';
 import Article from './Components/Article';
-import Admin from './Components/Admin';
+// import Admin from './Components/Admin';
 import NavbarComponent from './Components/NavbarComponent';
 
 export const LoginContext = React.createContext();
@@ -51,7 +30,7 @@ const App = () => {
             <Login />
           </Route>
           <Route path="/admin">
-            <Admin />
+            {/* <Admin /> */}
           </Route>
           <Route path="/article/:title">
             <Article />
@@ -67,4 +46,3 @@ const App = () => {
 
 export default App;
 
->>>>>>> 369775cc7cc39fb0961633d507507138c2a487ec

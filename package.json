@@ -3,33 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
-    "@mui/material": "^5.0.2",
-=======
     "@craco/craco": "^6.3.0",
     "@headlessui/react": "^1.4.1",
     "@heroicons/react": "^1.0.4",
     "@tailwindcss/forms": "^0.3.4",
->>>>>>> 369775cc7cc39fb0961633d507507138c2a487ec
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "bootstrap": "^5.1.1",
-<<<<<<< HEAD
-=======
     "draft-convert": "^2.1.12",
->>>>>>> 369775cc7cc39fb0961633d507507138c2a487ec
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.4",
     "react-dom": "^17.0.2",
-<<<<<<< HEAD
-=======
     "react-draft-wysiwyg": "^1.14.7",
     "react-hook-form": "^7.17.1",
->>>>>>> 369775cc7cc39fb0961633d507507138c2a487ec
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+    "react-slick": "^0.28.1",
     "react-social-icons": "^5.6.1",
+    "slick-carousel": "^1.8.1",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
