@@ -5,9 +5,11 @@ const ArticleSchema = new mongoose.Schema({
     title: String,
     text: String
 }
-    , {
-        timestamps: true,
-    });
+
+,{
+  timestamps: true,
+});
+
 
 
 const Article = mongoose.model("Article", ArticleSchema);
