@@ -2,11 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { LoginContext } from '../App';
 import { useContext } from 'react';
 import UserInfo from './UserInfo';
+
 // import CreateUser from './createUser/CreateUser';
 // import PostNewArticle from './PostNewArticle';
 import Sidebar from './AdminPage/Sidebar';
 import "./css/Admin.css"
 
+
+
+
+import DeleteUser from './DeleteUser';
 
 
 
@@ -49,7 +54,12 @@ const Admin = () => {
             </div>
             {/* <UserInfo />
             <CreateUser />
+
             <PostNewArticle /> */}
+
+
+            {/* <DeleteUser/> */}
+
         </div>
     );
 };

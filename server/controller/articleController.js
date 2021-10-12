@@ -54,11 +54,12 @@ const getOnearticle = async (req, res) => {
         res.status(201).json({
             message: "Article that you are clicked",
             data: onlyArticle
-        });
+
+        })
     } catch (err) {
         return res.status(400).json({
             message: "Article that you are searching for doesnt exist"
-        });
+        })
     }
 };
 
@@ -84,11 +85,13 @@ const articleID = async (req, res) => {
 const lastArticles = async (req, res) => {
     try {
         const getAllArticle = await Article.find();
-        const lastArticles = getAllArticle.sort(function (a, b) { return a.createdAt - b.createdAt; }).slice(0, 4);
+
+        const lastArticles = getAllArticle.sort(function (a, b) { return a.createdAt - b.createdAt }).slice(0, 4);
         res.status(201).json({
             message: "List of last articles",
             data: lastArticles
-        });
+        })
+
 
     } catch (err) {
         res.status(400).json({
