@@ -5,8 +5,9 @@ const router = express.Router();
 // const protect = require("../middleware/protect");
 
 
-const { addArticle, changearticleInfo, getOnearticle, lastArticles, articleID } = require("../controller/articleController");
-const { addSubArticle } = require("../controller/subArticleController");
+const { addArticle,changearticleInfo,getOnearticle, lastArticles, articleID, deleteArticle, AllArticles } = require("../controller/articleController");
+
+
 
 
 
@@ -17,7 +18,9 @@ router.put("/article/:title", changearticleInfo);
 router.get("/article/oneArticle/:title", getOnearticle);
 router.get("/article/id/:id", articleID);
 router.get("/article/new/lastArticles", lastArticles);
-router.get("article/articleID/:articleID", addSubArticle);
+
+router.delete("/article/delete", deleteArticle);
+router.get("/article/allList/:categoryID", AllArticles);
 
 
 

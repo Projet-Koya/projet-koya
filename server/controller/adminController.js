@@ -69,7 +69,9 @@ const addlogin = async (req, res) => {
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
         if (passwordValid) {
             res.cookie("jwt", token, { httpOnly: true, secure: false });
-            res.json({ message: "user match" });
+            res.json({ 
+                message: "user match",
+                data: user});
         } else {
             res.json({
                 message: "Password doesnt match..."
