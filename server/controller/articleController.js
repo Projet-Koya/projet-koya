@@ -118,9 +118,8 @@ const deleteArticle = async ( req, res ) => {
 // Getting all the Articles 
 
 const AllArticles = async( req,res )=> {
-    const categoryid = req.params.categoryID
     try {
-        const ArticleList = await Article.findOne({ categoryid });
+        const ArticleList = await Article.find();
         res.status(201).json({
             message:"List of your Articles",
             data: ArticleList,
