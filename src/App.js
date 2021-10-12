@@ -1,11 +1,13 @@
-
 import React, { useState } from 'react';
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import Login from './Components/Login';
 import Home from './Components/Home';
 import Article from './Components/Article';
 import Admin from './Components/Admin';
-import NavbarComponent from './Components/NavbarComponent';
+// import Footer from './Components/footer/Footer';
+// import NavbarComponent from './Components/NavbarComponent';
+import Navbar from './Components/Navbar/Navbar';
+
 
 export const LoginContext = React.createContext();
 
@@ -24,7 +26,7 @@ const App = () => {
   return (
     <LoginContext.Provider value={value}>
       <BrowserRouter>
-        <NavbarComponent />
+        <Navbar />
         <Switch>
           <Route path="/login">
             <Login />
@@ -40,6 +42,7 @@ const App = () => {
           </Route>
         </Switch>
       </BrowserRouter>
+      {/* <Footer /> */}
     </LoginContext.Provider>
   );
 };
