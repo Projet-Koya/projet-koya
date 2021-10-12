@@ -1,12 +1,12 @@
 
 import React, { useState } from 'react';
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './Components/Login';
 import Home from './Components/Home';
 import Article from './Components/Article';
 // import Admin from './Components/Admin';
 import NavbarComponent from './Components/NavbarComponent';
-
+import Footer from './Components/Footer'
 export const LoginContext = React.createContext();
 
 const App = () => {
@@ -39,6 +39,7 @@ const App = () => {
             <Home />
           </Route>
         </Switch>
+      <Footer />
       </BrowserRouter>
     </LoginContext.Provider>
   );
