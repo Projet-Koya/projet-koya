@@ -18,16 +18,8 @@ router.put("/article/:title", changearticleInfo);
 router.get("/article/oneArticle/:title", getOnearticle);
 router.get("/article/id/:id", articleID);
 router.get("/article/new/lastArticles", lastArticles);
-
 router.delete("/article/delete", deleteArticle);
-router.get("/article/allList/:categoryID", AllArticles);
-
-
-
-
-
-
-
+router.get("/article/allList", AllArticles);
 
 
 
