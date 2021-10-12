@@ -24,10 +24,12 @@ const adminRouter = require("./router/adminRouter");
 const categoryRouter = require("./router/categoryRouter");
 const articleRouter = require("./router/articleRouter.js");
 const subArticleRouter = require("./router/subArticleRouter.js");
+const commentRouter = require("./router/commentRouter.js");
 app.use("/api", adminRouter);
 app.use("/cat", categoryRouter);
 app.use("/art", articleRouter);
 app.use("/sub", subArticleRouter);
+app.use("/com", commentRouter);
 
 
 // Server
