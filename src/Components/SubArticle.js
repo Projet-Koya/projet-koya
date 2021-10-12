@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { LoginContext } from '../App';
 import { Editor, convertToRaw } from 'react-draft-wysiwyg';
@@ -6,18 +6,12 @@ import '../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { EditorState } from "draft-js";
 import { convertToHTML } from "draft-convert";
 
-
-export default function PostNewArticle() {
+export default function SubArticle() {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const [articleTitle, setArticleTitle] = useState();
-    const [articleContent, setArticleContent] = useState();
+    const [subArticleTitle, setSubArticleTitle] = useState();
+    const [subArticleContent, setSubArticleContent] = useState();
     const [editorState, setEditorState] = useState(() => EditorState.createEmpty());
-    const [categories, setCategories] = useState();
-    const [articleCategory, setArticleCategory] = useState();
-    const [subArticle, setSubArticle] = useState()
-    const [isLoading, setIsLoading] = useState(true);
     const LoginStatus = useContext(LoginContext);
-
 
     /* EDITOR FROM "react-draft-wysiwyg" */
     const handleEditorChange = (state) => {
@@ -27,50 +21,32 @@ export default function PostNewArticle() {
 
     const convertContentToHTML = () => {
         let currentContentAsHTML = convertToHTML(editorState.getCurrentContent());
-        setArticleContent({ ...articleContent, description: currentContentAsHTML });
+        setSubArticleContent({ ...subArticleContent, description: currentContentAsHTML });
     };
     /* END EDITOR */
 
-    useEffect(() => {
-        fetch("http://localhost:3001/cat/category/all")
-            .then(res => res.json())
-            .then(res => {
-                setCategories(res.data);
-            });
-    }, []);
-
-
     const onSubmit = () => {
-        fetch("http://localhost:3001/art/article", {
+        fetch("http://localhost:3001/sub/subArticle", {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             method: "POST",
             body: JSON.stringify({
-                text: articleContent.description,
-                title: articleTitle,
-                UserID: LoginStatus.userID,// userID context,
-                categoryID: articleCategory
+                articleID: LoginStatus.articleID,
+                text: subArticleContent.description,
+                title: subArticleTitle,
+                // UserID: LoginStatus.userID,// userID context,
             }),
         });
     };
-    console.log(articleCategory);
-    if (isLoading === true) { return null; }
     return (
         <div>
-            <h3>Post New Article</h3>
+            <h3>Post Sub Article To That Article</h3>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <label>Titre de l'article</label>
-                <input type="text" {...register("title", { required: true, onChange: (e) => setArticleTitle(e.target.value) })}></input>
+                <input type="text" {...register("title", { required: true, onChange: (e) => setSubArticleTitle(e.target.value) })}></input>
                 <label>Contenu de l'article</label>
-                <select value={articleCategory} onChange={(e) => setArticleCategory(e.target.value)}>
-                    {
-                        categories.map(category => {
-                            return <option value={category._id}>{category.name}</option>;
-                        })
-                    }
-                </select>
                 <Editor
                     wrapperClassName="wrapper-class"
                     editorClassName="editor-class"
