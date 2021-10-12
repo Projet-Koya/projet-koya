@@ -5,8 +5,10 @@ import Home from './Components/Home';
 import Article from './Components/Article';
 import Admin from './Components/Admin';
 // import Footer from './Components/footer/Footer';
-// import NavbarComponent from './Components/NavbarComponent';
 import Navbar from './Components/Navbar/Navbar';
+import AddAdmin from "./Components/AdminPage/AddAdmin"
+import AddArticle from "./Components/AdminPage/AddArticle"
+
 
 
 export const LoginContext = React.createContext();
@@ -33,9 +35,16 @@ const App = () => {
         <Switch>
           <Route path="/login">
             <Login />
+
           </Route>
           <Route path="/admin">
             <Admin />
+          </Route>
+          <Route path="/add-admin">
+            <AddAdmin />
+          </Route>
+          <Route path="/add-adrticle">
+          <AddArticle />
           </Route>
           <Route path="/article/:title">
             <Article />
