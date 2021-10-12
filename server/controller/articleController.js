@@ -97,7 +97,20 @@ const lastArticles = async (req, res) => {
     }
 };
 
-// 
+// Deleting an article
+const deleteArticle = async ( req, res ) => {
+    const title = req.body.title;
+    try {
+        await Article.deleteOne({ title : title});
+        res.status(201).json({
+            message: "Your article deleted",
+        })
+    } catch (err) {
+        res.status(400).json({
+            message: "Unable to delete you article"
+        })
+    }
+}
 
 
 
@@ -106,8 +119,8 @@ const lastArticles = async (req, res) => {
 module.exports = {
     addArticle,
     changearticleInfo,
-
     getOnearticle,
     lastArticles,
-    articleID
+    articleID,
+    deleteArticle
 };

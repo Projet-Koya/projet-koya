@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import UserInfo from './UserInfo';
 import CreateUser from './CreateUser';
 import PostNewArticle from './PostNewArticle';
+import DeleteUser from './DeleteUser';
 
 
 const Admin = () => {
@@ -31,6 +32,7 @@ const Admin = () => {
             <UserInfo />
             <CreateUser />
             <PostNewArticle />
+            {/* <DeleteUser/> */}
         </div>
     );
 };
