@@ -44,6 +44,21 @@ const categoryList = async (req, res) => {
     }
 }
 
+const oneCategory = async (req,res) =>{
+    const catID = req.params.id
+    try{
+        const Alonecategory = await Category.findById(catID)
+        res.status(201).json({
+            message:'One Category',
+            data: Alonecategory
+        })
+    } catch(err) {
+        return res.status(400).json({
+            message:"We couldn't find your category",
+        })
+    }
+}
+
 
 
 
@@ -53,4 +68,5 @@ module.exports = {
     addCategory,
     uploadImage,
     categoryList,
+    oneCategory
 }

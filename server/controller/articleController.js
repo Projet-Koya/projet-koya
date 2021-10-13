@@ -132,6 +132,22 @@ const AllArticles = async( req,res )=> {
 }
 
 
+const OneCategoryArticle = async(req,res)=> {
+    const categoryID = req.params;
+    try{
+        const ArticleCatId = await Article.findOne(categoryID);
+        res.status(201).json({
+            message:"Your articles byt Categiry id",
+            data: ArticleCatId
+        })
+    } catch(err) {
+        return res.status(400).json({
+            message:"Couldn's find you Articles with your categoryId"
+        })
+    }
+}
+
+
 
 
 
@@ -142,5 +158,6 @@ module.exports = {
     lastArticles,
     articleID,
     deleteArticle,
-    AllArticles
+    AllArticles,
+    OneCategoryArticle
 };

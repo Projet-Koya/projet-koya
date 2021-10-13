@@ -3,8 +3,8 @@ const multer = require("multer");
 const upload = multer({ dest: "public/image" });
 const categoryController = require("../controller/categoryControler")
 const router = express.Router();
-//const protect = require("../middleware/protect");
-const { addCategory, uploadImage, categoryList } = require("../controller/categoryControler");
+const protect = require("../middleware/protect");
+const { addCategory, uploadImage, categoryList, oneCategory } = require("../controller/categoryControler");
 
 
 
@@ -14,6 +14,7 @@ router.post("/category", addCategory);
 router.post("/category/upload", upload.single("image"), uploadImage);
 // Getting list of all categories
 router.get("/category/all", categoryList);
+router.get("/category/one/oneCategory/:id", oneCategory)
 
 
 

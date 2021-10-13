@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import "../css/ArticleCarousel.css"
 
 const ArticleCarousel = () => {
     const settings = {
@@ -55,13 +56,13 @@ const ArticleCarousel = () => {
     }, []);
     
     return (
-        <div className="container my-5 cols-6">
+        <div className="container custom-width">
             <h3 className="mb-10 text-2xl font-semibold">Les articles récents</h3>
             <Slider {...settings}>
                 {
                     articles.map((article) => {
                         return (
-                            <div className>
+                            <div className="bg-blue-100">
                                 <div className="shadow-md rounded-md overflow-hidden">
                                     <div className="p-4">
                                         <h4 className="text-xl font-semibold mb-2">Title : {article.title}</h4>
