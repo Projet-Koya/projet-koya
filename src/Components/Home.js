@@ -1,4 +1,5 @@
 import React from 'react'
+<<<<<<< HEAD
 import CategoryCarousel from './Carousels/CategoryCarousel'
 import ArticleCarousel from './Carousels/ArticleCarousel';
 
@@ -19,6 +20,16 @@ const Home = () => {
                 <CategoryCarousel />
             </div>
              
+=======
+import Popular from './lastArticle/LastArticle'
+
+
+const Home = () => {
+    return(
+        <div className="bg-gray-50">
+            <Popular />
+            
+>>>>>>> 506680d68b9d7bda81cc19ece82778912fc2db4f
         </div>
     )
 }

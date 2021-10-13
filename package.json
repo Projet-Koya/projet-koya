@@ -11,13 +11,19 @@
     "@fortawesome/react-fontawesome": "^0.1.15",
     "@headlessui/react": "^1.4.1",
     "@heroicons/react": "^1.0.4",
+    "@material-tailwind/react": "^0.3.4",
     "@tailwindcss/forms": "^0.3.4",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+<<<<<<< HEAD
     "axios": "^0.22.0",
+=======
+    "bcrypt": "^5.0.1",
+>>>>>>> 506680d68b9d7bda81cc19ece82778912fc2db4f
     "bootstrap": "^5.1.1",
     "draft-convert": "^2.1.12",
+    "draft-js": "^0.11.7",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.4",
     "react-dom": "^17.0.2",
@@ -25,9 +31,13 @@
     "react-hook-form": "^7.17.1",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+<<<<<<< HEAD
     "react-slick": "^0.28.1",
     "react-social-icons": "^5.6.1",
     "slick-carousel": "^1.8.1",
+=======
+    "react-social-icons": "^5.6.1",
+>>>>>>> 506680d68b9d7bda81cc19ece82778912fc2db4f
     "web-vitals": "^1.1.2"
   },
   "scripts": {

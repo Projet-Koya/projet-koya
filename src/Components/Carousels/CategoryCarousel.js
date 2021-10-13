@@ -34,9 +34,9 @@ const CategoryCarousel =() => {
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1
-          }
+          }`
         }
-      ]
+      ]`
     };
 
     const [categories, setCategories] =  useState([]);

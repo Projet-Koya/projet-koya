@@ -1,12 +1,22 @@
-
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './Components/Login';
 import Home from './Components/Home';
 import Article from './Components/Article';
+<<<<<<< HEAD
 // import Admin from './Components/Admin';
 import NavbarComponent from './Components/NavbarComponent';
 import Footer from './Components/Footer'
+=======
+import Admin from './Components/Admin';
+// import Footer from './Components/footer/Footer';
+import Navbar from './Components/Navbar/Navbar';
+import AddAdmin from "./Components/AdminPage/AddAdmin"
+import AddArticle from "./Components/AdminPage/AddArticle"
+
+
+
+>>>>>>> 506680d68b9d7bda81cc19ece82778912fc2db4f
 export const LoginContext = React.createContext();
 
 const App = () => {
@@ -24,13 +34,20 @@ const App = () => {
   return (
     <LoginContext.Provider value={value}>
       <BrowserRouter>
-        <NavbarComponent />
+        <Navbar />
         <Switch>
           <Route path="/login">
             <Login />
+
           </Route>
           <Route path="/admin">
             {/* <Admin /> */}
+          </Route>
+          <Route path="/add-admin">
+            <AddAdmin />
+          </Route>
+          <Route path="/add-adrticle">
+          <AddArticle />
           </Route>
           <Route path="/article/:title">
             <Article />
@@ -41,6 +58,7 @@ const App = () => {
         </Switch>
       <Footer />
       </BrowserRouter>
+      {/* <Footer /> */}
     </LoginContext.Provider>
   );
 };
