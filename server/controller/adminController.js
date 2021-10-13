@@ -67,6 +67,7 @@ const addlogin = async (req, res) => {
     try {
         const passwordValid = await bcrypt.compare(password, user.password);
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+        console.log(token)
         if (passwordValid) {
             res.cookie("jwt", token, { httpOnly: true, secure: false });
             res.json({ 

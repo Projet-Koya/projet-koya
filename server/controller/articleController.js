@@ -9,7 +9,7 @@ const path = require("path");
 
 // Add new article 
 const addArticle = async (req, res) => {
-    // const userID = req.cookies.jwtData.id
+    //const userID = req.cookies.jwtData.id
     const { categoryID, userID, title, text } = req.body;
     console.log(req.body);
     try {
@@ -135,7 +135,7 @@ const AllArticles = async( req,res )=> {
 const OneCategoryArticle = async(req,res)=> {
     const categoryID = req.params;
     try{
-        const ArticleCatId = await Article.findOne(categoryID);
+        const ArticleCatId = await Article.find(categoryID);
         res.status(201).json({
             message:"Your articles byt Categiry id",
             data: ArticleCatId

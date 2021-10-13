@@ -31,6 +31,7 @@ const Login = () => {
         if (res.message === "user match") {
           LoginStatus.setLogStatus(true);
           LoginStatus.setUserEmail(email);
+          console.log(LoginStatus.EmailUser);
           history.push("/admin");
         } else {
           console.log("erreur");
