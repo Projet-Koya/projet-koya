@@ -31,12 +31,20 @@ export default function Dashboard() {
                 console.log(res.message);
             });
     };
+    console.log(EmailNewUser)
+    console.log(PasswordNewUser)
+    console.log(NameNewUser)
+    console.log(LastNameNewUser)
     return (
         <>
         <Sidebar />
-        <div className="container left-margin">
-            
-            <h1 className="font text-3xl mt-4 ml-8">Add an admin</h1>
+        <div className="container ">
+            <div className="container">
+            <h1 className="text-6xl bg-green-500 text-center py-8">Add an admin</h1>
+
+            </div>
+            <div className="left-margin">
+
             <form className="flex flex-col ml-8" onSubmit={handleSubmit(onSubmit)}>
                 <label className="font my-2 ml-6 m">Nom</label>
                 <input className="w-1/5 rounded-full py-3 px-6 bg-green-200" type="text" {...register("lastName", { required: true, onChange: (e) => setLastNameNewUser(e.target.value) })}></input>
@@ -52,6 +60,7 @@ export default function Dashboard() {
                 {errors.email && <span>Votre email n'est pas valide</span>}
                 <input className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded w-28 rounded-full py-3 px-6 mt-2 ml-2" type="submit" value="Create"></input>
             </form>
+            </div>
         </div>
         </>
     );

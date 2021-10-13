@@ -61,12 +61,16 @@ export default function PostNewArticle() {
     return (
         <>
         <Sidebar />
-        <div className="container left-margin">
-            <h3 className="font text-3xl mt-2 ml-8 mb-4">Post New Article</h3>
+        <div className="container">
+            <div className="container">
+            <h3 className="text-6xl bg-green-500 text-center py-8">Poster un nouvel article</h3>
+            </div>
+            <div className="left-margin">
+
             <form onSubmit={handleSubmit(onSubmit)}>
                 <label  className="font text-2xl mt-2 ml-8 mb-4">Titre de l'article</label>
                 <input className="w-1/5 rounded-full py-3 px-6 bg-green-200 ml-2" type="text" {...register("title", { required: true, onChange: (e) => setArticleTitle(e.target.value) })}></input>
-                <label className="font text-2xl mt-2 ml-8 mb-4">Contenu de l'article</label>
+                <label className="font text-2xl mt-2 ml-8 mb-4">Nom de catégorie</label>
                 <select className="w-1/5 rounded-full py-3 px-6 bg-green-200 ml-2 my-4" value={articleCategory} onChange={(e) => setArticleCategory(e.target.value)}>
                     {
                         categories.map(category => {
@@ -84,6 +88,7 @@ export default function PostNewArticle() {
                 />
                 <input className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded w-28 rounded-full py-3 px-6 mt-16 ml-2" type="submit" value="Publier"></input>
             </form>
+            </div>
         </div>
         </>
     );
