@@ -12,7 +12,8 @@ export default function SubArticle() {
     const [subArticleContent, setSubArticleContent] = useState();
     const [categories, setCategories] = useState();
     const [articleCategory, setArticleCategory] = useState();
-    const [allArticles, setallArticles] = useState()
+    const [subArticleToArticle, setSubArticleToArticle] = useState();
+    const [allArticles, setallArticles] = useState();
     const [editorState, setEditorState] = useState(() => EditorState.createEmpty());
     const LoginStatus = useContext(LoginContext);
     const [isLoading, setIsLoading] = useState(true);
@@ -34,15 +35,22 @@ export default function SubArticle() {
             .then(res => res.json())
             .then(res => {
                 setCategories(res.data);
+                setIsLoading(false);
             });
-        fetch("http://localhost:3001/art/article/allList")
+
+    }, []);
+
+    const handleSelect = (e) => {
+        setIsLoading(true);
+        setArticleCategory(e.target.value);
+        fetch(`http://localhost:3001/art/article/categoryArticle/${e.target.value}`)
             .then(res => res.json())
             .then(res => {
+                console.log(res.data);
                 setallArticles(res.data);
                 setIsLoading(false);
-            })
-            
-    }, []);
+            });
+    };
 
 
     const onSubmit = () => {
@@ -53,40 +61,51 @@ export default function SubArticle() {
             },
             method: "POST",
             body: JSON.stringify({
-                articleID: LoginStatus.articleID,
+                articleID: subArticleToArticle,
                 text: subArticleContent.description,
                 title: subArticleTitle,
                 // UserID: LoginStatus.userID,// userID context,
             }),
         });
     };
+    console.log(subArticleTitle);
+    console.log(subArticleContent.description);
+    console.log(subArticleToArticle);
     if (isLoading === true) { return null; }
     return (
         <div>
             <h3>Post Sub Article To That Article</h3>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <label>Titre du sub article</label>
-                <input type="text" {...register("title", { required: true, onChange: (e) => {setSubArticleTitle(e.target.value)
-                // const articleFilter = [...allArticles]
-                // articleFilter.filter((article) => article.categoryID === subArticleCategory) {
-                //     return <select>
-                        
-                //     </select>
-                // }
-                } })}></input>
-                <select value={articleCategory} onChange={(e) => setArticleCategory(e.target.value) }>
+                <input type="text" {...register("title", {
+                    required: true, onChange: (e) => {
+                        setSubArticleTitle(e.target.value);
+                        // const articleFilter = [...allArticles]
+                        // articleFilter.filter((article) => article.categoryID === subArticleCategory) {
+                        //     return <select>
+
+                        //     </select>
+                        // }
+                    }
+                })}></input>
+                {/* Select Pour la catégorie */}
+                <select value={articleCategory} onChange={(e) => handleSelect(e)
+                }>
                     {
                         categories.map(category => {
                             return <option value={category._id}>{category.name}</option>;
                         })
                     }
                 </select>
+                {/* Select pour les titres d'articles selon la catégorie */}
                 {articleCategory ? <select value={subArticleToArticle} onChange={(e) => setSubArticleToArticle(e.target.value)}>
                     {
-                        
+                        allArticles.map(article => {
+                            return <option value={article._id}>{article.title}</option>;
+                        })
 
                     }
-                </select>  : null}
+                </select> : null}
                 <label>Contenu de l'article</label>
                 <Editor
                     wrapperClassName="wrapper-class"

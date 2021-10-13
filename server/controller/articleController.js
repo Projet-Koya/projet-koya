@@ -135,7 +135,7 @@ const AllArticles = async( req,res )=> {
 const OneCategoryArticle = async(req,res)=> {
     const categoryID = req.params;
     try{
-        const ArticleCatId = await Article.findOne(categoryID);
+        const ArticleCatId = await Article.find(categoryID);
         res.status(201).json({
             message:"Your articles byt Categiry id",
             data: ArticleCatId
