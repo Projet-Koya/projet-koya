@@ -1,7 +1,7 @@
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 
 function protect(req, res, next) {
-    try { 
+    try {
         const data = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET);
         req.cookies.jwtData = data;
         next();

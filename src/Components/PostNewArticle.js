@@ -5,7 +5,7 @@ import { Editor, convertToRaw } from 'react-draft-wysiwyg';
 import '../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { EditorState } from "draft-js";
 import { convertToHTML } from "draft-convert";
-
+import SubArticle from './SubArticle'
 
 export default function PostNewArticle() {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -14,6 +14,7 @@ export default function PostNewArticle() {
     const [editorState, setEditorState] = useState(() => EditorState.createEmpty());
     const [categories, setCategories] = useState();
     const [articleCategory, setArticleCategory] = useState();
+    const [subArticle, setSubArticle] = useState()
     const [isLoading, setIsLoading] = useState(true);
     const LoginStatus = useContext(LoginContext);
 
@@ -35,9 +36,9 @@ export default function PostNewArticle() {
             .then(res => res.json())
             .then(res => {
                 setCategories(res.data);
-                setIsLoading(false);
             });
     }, []);
+
 
     const onSubmit = () => {
         fetch("http://localhost:3001/art/article", {
@@ -79,6 +80,7 @@ export default function PostNewArticle() {
                 />
                 <input type="submit" value="Publier"></input>
             </form>
+            <SubArticle/>
         </div>
     );
 }

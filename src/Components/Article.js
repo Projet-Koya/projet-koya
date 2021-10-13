@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { LoginContext } from '../App';
 import { useParams } from 'react-router';
-
-import "./css/Article.css"
-
-
+import "./css/Article.css";
+import DisplayComments from './DisplayComments';
+import WriteNewComment from './WriteNewComment';
 
 
 const Article = () => {
   const [data, setData] = useState();
+  const LoginStatus = useContext(LoginContext);
   // const [comments, setComments] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const { title } = useParams();
@@ -35,28 +36,16 @@ const Article = () => {
 
   // Recuperation de l'article choisi dans la base de données
   useEffect(() => {
-    console.log(title);
     fetch(
       `http://localhost:3001/art/article/oneArticle/${title}`)
       .then(res => res.json())
       .then(res => {
         setData(res);
+        console.log(res);
+        LoginStatus.setArticleID(res.data._id);
         setIsLoading(false);
       });
   }, []);
-
-
-  // useEffect(() => {
-  //     fetch(`base de données/commentaires liés à l'article`)
-  //     .then(res => res.json())
-  //     // Fonction ici pour prendre direct les commentaires validés ?
-  //     .then(res => setComments(res))
-  //     .then(console.log(comments))
-  // }, [])
-
-  // Filtrer les commentaires validés
-  //  const validComments = comments.filter(comment => comment.isValid === true)
-
   if (isLoading === true) { return null; }
   return (
     <>
@@ -70,7 +59,9 @@ const Article = () => {
             </ReadMore>
           </p></div>
         </div>
-
+        {/* <DisplayComments /> */}
+        <WriteNewComment />
+        {/* {LoginStatus.LogStatus === true ? <SubArticle/> : null} */}
       </div>
 
       {/*  */}
