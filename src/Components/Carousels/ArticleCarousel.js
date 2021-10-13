@@ -68,7 +68,7 @@ const ArticleCarousel = () => {
                                         <h4 className="text-xl font-semibold mb-2">Title : {article.title}</h4>
                                         <p className="mb-4">{article.text}</p>
                                         <p>Date de publication : {article.date}</p>
-                                        <button className="bg-primary text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">Plus</button>
+                                        <button className="bg-primary text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">Read more</button>
                                     </div>
                                 </div>
                             </div>

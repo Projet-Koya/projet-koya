@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Link } from 'react'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
-const CategorySlider =() => { 
+const CategoryCarousel =() => { 
     const settings = {
       dots: true,
       infinite: false,
@@ -51,36 +51,40 @@ const CategorySlider =() => {
 
         getAllCategories();
     }, []);
-    
+  
+
     return (
-        <div className="container my-5">
-          <h2 className="text-2xl font-semibold">Categories </h2>
-          <Slider {...settings}>
-              {categories.map((category) =>{
-                    return (
-                        <div className>
-                        <div className="shadow-md rounded-md overflow-hidden">
-                            <div className="p-4">
-                            <h4 className="text-xl my-5">{category.name}</h4>
-                            <img 
-                              src={category.picture} 
-                              alt="" 
-                              style={{ 
-                                width: "100%", 
-                                height: "40vh", 
-                                objectFit: "cover",
-                              }} 
-                            />
-                            <button className="bg-primary my-3 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">Plus...</button>
-                            </div>
-                        </div>
-                    </div>
-                    )
-                }
-                )}
-            </Slider>
-          </div>
+      <div className="container my-5">
+        <h2 className="text-2xl font-semibold">Categories </h2>
+        <Slider {...settings}>
+            {categories.map(category => { 
+                return (
+                  <div className="grid-cols-2">
+                    <Card {...category} />
+                  </div>
+                )
+            })}
+          </Slider>
+      </div>
     )
+};
+
+const Card = (category) => {
+  return (
+      <div className="text-center">
+        <h3>{category.name}</h3>
+          <img 
+              src={category.picture}
+              alt=""
+              style={{
+              width: "100%",
+              height: "170px",
+              objectFit: "contain",
+              marginBottom: "10px",
+              }}
+          />
+      </div>
+  )
 }
 
-export default CategorySlider;
+export default CategoryCarousel;
