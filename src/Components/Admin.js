@@ -43,7 +43,10 @@ const Admin = () => {
         <div >
             <Sidebar />
             <div className="container1">
-            <h1 className="font1 text-6xl my-8">Page d'admin</h1>
+            <div className="container">
+            <h1 className="text-6xl bg-green-500 text-center py-8">Page d'admin</h1>
+            </div>
+            <h2 className="font-1 text-5xl my-8 ml-6 ">Bonjour,{user.name} </h2>
             <div className="content ml-10 mt-16">
             <p className="font-name my-6 text-3xl">Name: {user.name}</p>
             <p className="font-name my-6 text-3xl">Last Name: {user.lastName}</p>
