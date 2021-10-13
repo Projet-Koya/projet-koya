@@ -2,7 +2,9 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import Logo from '../../assets/Logo.png';
-import Koya from '../../assets/koya-logo.svg'
+import Koya from '../../assets/koya-logo.svg';
+let user = JSON.parse(localStorage.getItem("user-info"));
+console.log(user);
 
 const navigation = [
   { name: 'Home', href: '/blog', current: true },
