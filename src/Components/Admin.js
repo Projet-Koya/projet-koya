@@ -23,7 +23,7 @@ const Admin = () => {
         fetch(`http://localhost:3001/api/user/id/get/${LoginStatus.EmailUser}`)
             .then(res => res.json())
             .then(res => {
-                console.log(res.data);
+                console.log(res);
                 LoginStatus.setUserID(res.data._id);
                 setUser(res.data)
                 setIsLoading(false);

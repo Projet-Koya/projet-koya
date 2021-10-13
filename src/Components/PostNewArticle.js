@@ -5,7 +5,7 @@ import { Editor, convertToRaw } from 'react-draft-wysiwyg';
 import '../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { EditorState } from "draft-js";
 import { convertToHTML } from "draft-convert";
-
+import SubArticle from './SubArticle'
 
 export default function PostNewArticle() {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -80,6 +80,7 @@ export default function PostNewArticle() {
                 />
                 <input type="submit" value="Publier"></input>
             </form>
+            <SubArticle/>
         </div>
     );
 }

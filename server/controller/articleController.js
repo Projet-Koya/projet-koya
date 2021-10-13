@@ -9,7 +9,7 @@ const path = require("path");
 
 // Add new article 
 const addArticle = async (req, res) => {
-    // const userID = req.cookies.jwtData.id
+    //const userID = req.cookies.jwtData.id
     const { categoryID, userID, title, text } = req.body;
     console.log(req.body);
     try {

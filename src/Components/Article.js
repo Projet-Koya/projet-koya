@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { LoginContext } from '../App';
 import { useParams } from 'react-router';
-import "../css/Article.css";
+import "./css/Article.css";
 import DisplayComments from './DisplayComments';
 import WriteNewComment from './WriteNewComment';
-import SubArticle from './SubArticle';
 
 
 const Article = () => {
@@ -62,7 +61,6 @@ const Article = () => {
         </div>
         {/* <DisplayComments /> */}
         <WriteNewComment />
-        <SubArticle/>
         {/* {LoginStatus.LogStatus === true ? <SubArticle/> : null} */}
       </div>
 

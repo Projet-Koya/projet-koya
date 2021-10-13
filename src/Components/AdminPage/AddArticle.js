@@ -7,6 +7,7 @@ import { EditorState } from "draft-js";
 import { convertToHTML } from "draft-convert";
 import Sidebar from "./Sidebar"
 import "./AddArticle.css"
+import SubArticle from '../SubArticle';
 
 
 export default function PostNewArticle() {
@@ -84,6 +85,7 @@ export default function PostNewArticle() {
                 />
                 <input className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded w-28 rounded-full py-3 px-6 mt-16 ml-2" type="submit" value="Publier"></input>
             </form>
+            <SubArticle/>
         </div>
         </>
     );
