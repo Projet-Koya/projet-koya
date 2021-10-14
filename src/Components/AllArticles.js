@@ -2,10 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import './css/AllArticle.css'
 
+import { useHistory } from 'react-router-dom';
+
+
 export default function AllArticles() {
     const { categoryID } = useParams();
     const [articles, setArticles] = useState();
     const [isLoading, setIsLoading] = useState(true);
+
+    const history = useHistory();
+
+    const handleClick = (articleTitle) => {
+        history.push(`/article/${articleTitle}`);
+    };
+
 
     useEffect(() => {
         console.log("test");
@@ -24,11 +34,15 @@ export default function AllArticles() {
             {
                 articles.map(article => {
                     return (
+
                         <div className="container flex flex-col shadow-2xl py-8 px-16">
                             <div>
-                            <h2 className="title-font">{article.title}</h2>
+                            <h2 onClick={() => handleClick(article.title)} className="title-font hover:bg-green-200">{article.title}</h2>
                             </div>
                         <div dangerouslySetInnerHTML={{ __html: article.text }}></div>
+                            {/* <h2 onClick={() => handleClick(article.title)}>{article.title}</h2> */}
+                            {/* <p>{article.text}</p> */}
+
                         </div>
                     );
                 })

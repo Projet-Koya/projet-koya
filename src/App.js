@@ -5,9 +5,8 @@ import Home from './Components/Home';
 import Article from './Components/Article';
 import Admin from './Components/Admin';
 // import Footer from './Components/footer/Footer';
-import SubArticle from "./Components/SubArticle"
 import Navbar from './Components/Navbar/Navbar';
-
+import SubArticle from './Components/SubArticle';
 import AddAdmin from "./Components/AdminPage/AddAdmin";
 import AddArticle from "./Components/AdminPage/AddArticle";
 import AllArticles from './Components/AllArticles';
@@ -53,7 +52,9 @@ const App = () => {
             <AddArticle />
           </Route>
           <Route path="/add-subarticle">
-          <SubArticle />
+
+            <SubArticle />
+
           </Route>
           <Route path="/article/:title">
             <Article />
