@@ -6,9 +6,10 @@ import Article from './Components/Article';
 import Admin from './Components/Admin';
 // import Footer from './Components/footer/Footer';
 import Navbar from './Components/Navbar/Navbar';
-import AddAdmin from "./Components/AdminPage/AddAdmin"
-import AddArticle from "./Components/AdminPage/AddArticle"
-import SubArticle from '../src/Components/SubArticle';
+
+import AddAdmin from "./Components/AdminPage/AddAdmin";
+import AddArticle from "./Components/AdminPage/AddArticle";
+import AllArticles from './Components/AllArticles';
 
 
 
@@ -16,9 +17,11 @@ export const LoginContext = React.createContext();
 
 const App = () => {
   const [LogStatus, setLogStatus] = useState(false);
-  const [EmailUser, setUserEmail] = useState()
-  const [userID, setUserID] = useState()
-  const [articleID, setArticleID] = useState()
+  const [EmailUser, setUserEmail] = useState();
+  const [userID, setUserID] = useState();
+  const [articleID, setArticleID] = useState();
+  const [categoryID, setCategoryID] = useState();
+
   const value = {
     LogStatus: LogStatus,
     setLogStatus: setLogStatus,
@@ -27,7 +30,9 @@ const App = () => {
     userID: userID,
     setUserID: setUserID,
     articleID: articleID,
-    setArticleID: setArticleID
+    setArticleID: setArticleID,
+    categoryID: categoryID,
+    setCategoryID: setCategoryID
   };
   return (
     <LoginContext.Provider value={value}>
@@ -36,7 +41,6 @@ const App = () => {
         <Switch>
           <Route path="/login">
             <Login />
-
           </Route>
           <Route path="/admin">
             <Admin />
@@ -45,13 +49,16 @@ const App = () => {
             <AddAdmin />
           </Route>
           <Route path="/add-adrticle">
-          <AddArticle />
+            <AddArticle />
           </Route>
           <Route path="/add-subarticle">
           <SubArticle />
           </Route>
           <Route path="/article/:title">
             <Article />
+          </Route>
+          <Route path="/all-articles/:categoryID">
+            <AllArticles />
           </Route>
           <Route path="/">
             <Home />
