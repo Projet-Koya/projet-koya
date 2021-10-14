@@ -10,7 +10,7 @@ import Navbar from './Components/Navbar/Navbar';
 import AddAdmin from "./Components/AdminPage/AddAdmin";
 import AddArticle from "./Components/AdminPage/AddArticle";
 import AllArticles from './Components/AllArticles';
-
+import SubArticle from './Components/SubArticle'
 
 
 export const LoginContext = React.createContext();
