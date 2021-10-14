@@ -5,6 +5,7 @@ import Home from './Components/Home';
 import Article from './Components/Article';
 import Admin from './Components/Admin';
 // import Footer from './Components/footer/Footer';
+import SubArticle from "./Components/SubArticle"
 import Navbar from './Components/Navbar/Navbar';
 
 import AddAdmin from "./Components/AdminPage/AddAdmin";

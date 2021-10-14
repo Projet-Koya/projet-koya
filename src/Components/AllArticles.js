@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
+import './css/AllArticle.css'
 
 export default function AllArticles() {
     const { categoryID } = useParams();
@@ -19,13 +20,15 @@ export default function AllArticles() {
     console.log("test");
     if (isLoading === true) { return null; }
     return (
-        <div>
+        <div className="custom-margin grid grid-cols-2 gap-4 my-16 ">
             {
                 articles.map(article => {
                     return (
-                        <div>
-                            <h2>{article.name}</h2>
-                            <p>{article.text}</p>
+                        <div className="container flex flex-col shadow-2xl py-8 px-16">
+                            <div>
+                            <h2 className="title-font">{article.title}</h2>
+                            </div>
+                        <div dangerouslySetInnerHTML={{ __html: article.text }}></div>
                         </div>
                     );
                 })
