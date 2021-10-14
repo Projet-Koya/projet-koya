@@ -1,15 +1,15 @@
 const Comment = require("../models/commentModel.js");
-// const bcrypt = require("bcrypt");
-// const fs = require("fs");
-// const jwt = require("jsonwebtoken");
-// const path = require("path");
+const bcrypt = require("bcrypt");
+const fs = require("fs");
+const jwt = require("jsonwebtoken");
+const path = require("path");
 
 
 const createComment = async (req, res) => {
     const { articleID, author, text } = req.body
     try {
-        // const data = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET);
-        // req.cookies.jwtData = data;
+        const data = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET);
+        req.cookies.jwtData = data;
 
         await Comment.create({ articleID, author, text });
         res.status(201).json({

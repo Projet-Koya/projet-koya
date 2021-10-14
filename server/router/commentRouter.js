@@ -1,7 +1,7 @@
 const express = require("express");
 const multer = require("multer");
 const router = express.Router();
-// const protect = require("../middleware/protect");
+//const protect = require("../middleware/protect");
 
 const { createComment, deleteComment, modifyComment, getAllComment } = require("../controller/commentController");
 
