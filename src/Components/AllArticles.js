@@ -24,7 +24,7 @@ export default function AllArticles() {
                 articles.map(article => {
                     return (
                         <div>
-                            <h2>{article.name}</h2>
+                            <h2>{article.title}</h2>
                             <p>{article.text}</p>
                         </div>
                     );
