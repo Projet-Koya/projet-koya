@@ -5,6 +5,7 @@ import { Editor, convertToRaw } from 'react-draft-wysiwyg';
 import '../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { EditorState } from "draft-js";
 import { convertToHTML } from "draft-convert";
+import Sidebar from './AdminPage/Sidebar';
 
 export default function SubArticle() {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -69,44 +70,42 @@ export default function SubArticle() {
         });
     };
     console.log(subArticleTitle);
-    console.log(subArticleContent.description);
+    console.log(subArticleContent);
     console.log(subArticleToArticle);
     if (isLoading === true) { return null; }
     return (
-        <div>
-            <h3>Post Sub Article To That Article</h3>
+        <>
+        <Sidebar />
+        <div className="container">
+            <h3 className="text-6xl bg-green-500 text-center py-8">Post Sub Article To That Article</h3>
+            <div className="left-margin my-4">
+
             <form onSubmit={handleSubmit(onSubmit)}>
-                <label>Titre du sub article</label>
-                <input type="text" {...register("title", {
+                <label className="font text-2xl mt-2 ml-8 mb-4">Titre du sub article</label>
+                <input className="w-1/5 rounded-full py-3 px-6 bg-green-200 ml-2" type="text" {...register("title", {
                     required: true, onChange: (e) => {
                         setSubArticleTitle(e.target.value);
-                        // const articleFilter = [...allArticles]
-                        // articleFilter.filter((article) => article.categoryID === subArticleCategory) {
-                        //     return <select>
-
-                        //     </select>
-                        // }
                     }
                 })}></input>
                 {/* Select Pour la catégorie */}
-                <select value={articleCategory} onChange={(e) => handleSelect(e)
+                <select className="w-1/5 rounded-full py-3 px-6 bg-green-200 ml-2" value={articleCategory} onChange={(e) => handleSelect(e)
                 }>
                     {
                         categories.map(category => {
-                            return <option value={category._id}>{category.name}</option>;
+                            return <option className="font text-2xl mt-2 ml-6 mb-4" value={category._id}>{category.name}</option>;
                         })
                     }
                 </select>
                 {/* Select pour les titres d'articles selon la catégorie */}
-                {articleCategory ? <select value={subArticleToArticle} onChange={(e) => setSubArticleToArticle(e.target.value)}>
+                {articleCategory ? <select className="font text-2xl mt-2 ml-8 mb-4" className="w-1/5 rounded-full py-3 px-6 bg-green-200 ml-2" value={subArticleToArticle} onChange={(e) => setSubArticleToArticle(e.target.value)}>
                     {
                         allArticles.map(article => {
-                            return <option value={article._id}>{article.title}</option>;
+                            return <option className="font text-2xl mt-2 ml-8 mb-4" className="w-1/5 rounded-full py-3 px-6 bg-green-200 ml-2" value={article._id}>{article.title}</option>;
                         })
 
                     }
                 </select> : null}
-                <label>Contenu de l'article</label>
+                <label className="font text-2xl mt-2 ml-8 mb-6">Contenu de l'article</label>
                 <Editor
                     wrapperClassName="wrapper-class"
                     editorClassName="editor-class"
@@ -114,8 +113,10 @@ export default function SubArticle() {
                     EditorState={EditorState}
                     onEditorStateChange={handleEditorChange}
                 />
-                <input type="submit" value="Publier"></input>
+                <input className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded w-28 rounded-full py-3 px-6 mt-16 ml-2" type="submit" value="Publier"></input>
             </form>
+            </div>
         </div>
+        </>
     );
 }
