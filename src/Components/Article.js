@@ -49,18 +49,18 @@ const Article = () => {
   if (isLoading === true) { return null; }
   return (
     <>
-      <div className="container flex justify-center mt-10">
-        <div className="flex flex-col mt-10">
+      <div className="container flex justify-center mt-10 ">
+        <div className="flex flex-col mt-10 w-1/2 ">
           <h1 className="animate-pulse flex justify-center text-3xl">{data.data.title}</h1>
-          <div className="mt-8 flex justify-center px-10 mx-10 shadow-2xl"><p className="flex justify-center text-color">
-            <ReadMore>
-              <div dangerouslySetInnerHTML={{ __html: data.data.text }}>
+          <div className="mt-8 flex justify-center px-10 mx-10 shadow-2xl py-8"><p className="flex justify-center text-color">
+              <div className="font-black text-2xl " dangerouslySetInnerHTML={{ __html: data.data.text }}>
               </div>
-            </ReadMore>
+            {/* <ReadMore>
+            </ReadMore> */}
           </p></div>
         </div>
         {/* <DisplayComments /> */}
-        <WriteNewComment />
+        {/* <WriteNewComment /> */}
         {/* {LoginStatus.LogStatus === true ? <SubArticle/> : null} */}
       </div>
 

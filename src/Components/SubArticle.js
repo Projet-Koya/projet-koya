@@ -99,7 +99,7 @@ export default function SubArticle() {
                 {/* Select pour les titres d'articles selon la catégorie */}
                 {articleCategory ? <select className="font text-2xl mt-2 ml-8 mb-4" className="w-1/5 rounded-full py-3 px-6 bg-green-200 ml-2" value={subArticleToArticle} onChange={(e) => setSubArticleToArticle(e.target.value)}>
                     {
-                        allArticles.map(article => {
+                        allArticles.map(article =>{
                             return <option className="font text-2xl mt-2 ml-8 mb-4" className="w-1/5 rounded-full py-3 px-6 bg-green-200 ml-2" value={article._id}>{article.title}</option>;
                         })
 

@@ -6,9 +6,7 @@ import Article from './Components/Article';
 import Admin from './Components/Admin';
 // import Footer from './Components/footer/Footer';
 import Navbar from './Components/Navbar/Navbar';
-
 import SubArticle from './Components/SubArticle';
-
 import AddAdmin from "./Components/AdminPage/AddAdmin";
 import AddArticle from "./Components/AdminPage/AddArticle";
 import AllArticles from './Components/AllArticles';
