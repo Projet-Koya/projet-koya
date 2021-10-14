@@ -9,8 +9,8 @@ const path = require("path");
 const addSubArticle = async (req, res) => {
     const { articleID, title, text } = req.body
     try {
-        const data = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET);
-        req.cookies.jwtData = data;
+        //const data = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET);
+        //req.cookies.jwtData = data;
 
         await SubArticle.create({ articleID: articleID, title: title, text: text });
         res.status(201).json({
