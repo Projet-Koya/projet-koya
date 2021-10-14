@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { LoginContext } from '../App';
 import { useContext } from 'react';
 import UserInfo from './UserInfo';
-
+import { MdAccountCircle } from "react-icons/md";
 // import CreateUser from './createUser/CreateUser';
 // import PostNewArticle from './PostNewArticle';
 import Sidebar from './AdminPage/Sidebar';
