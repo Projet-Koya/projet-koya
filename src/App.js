@@ -8,6 +8,7 @@ import Admin from './Components/Admin';
 import Navbar from './Components/Navbar/Navbar';
 import AddAdmin from "./Components/AdminPage/AddAdmin"
 import AddArticle from "./Components/AdminPage/AddArticle"
+import SubArticle from '../src/Components/SubArticle';
 
 
 
@@ -45,6 +46,9 @@ const App = () => {
           </Route>
           <Route path="/add-adrticle">
           <AddArticle />
+          </Route>
+          <Route path="/add-subarticle">
+          <SubArticle />
           </Route>
           <Route path="/article/:title">
             <Article />
