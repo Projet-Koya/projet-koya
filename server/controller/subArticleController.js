@@ -23,7 +23,7 @@ const addSubArticle = async (req, res) => {
     }
 }
 
-// take one articles
+// take one article
 const getSubArticle = async (req, res) => {
     const getArticle = req.params;
     try {
@@ -40,7 +40,7 @@ const getSubArticle = async (req, res) => {
     }
 }
 
-// Delete an  subarticle
+// Delete an subarticle
 const deleteSubArticle = async (req, res) => {
     const deleteArticle = req.params;
 
@@ -56,7 +56,7 @@ const deleteSubArticle = async (req, res) => {
     }
 }
 
-//Modify an subarticle
+//Edite an subarticle
 const modifyASubArticle = async (req, res) => {
     const modifyArticle = req.params.
         id;

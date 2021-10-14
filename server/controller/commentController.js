@@ -39,7 +39,7 @@ const deleteComment = async (req, res) => {
     }
 }
 
-// Modify an comment
+// Edit a comment 
 const modifyComment = async (req, res) => {
     const modComment = res.params;
     const { articleID, author, text, isAdmin } = req.body;

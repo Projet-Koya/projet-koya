@@ -26,7 +26,7 @@ const addArticle = async (req, res) => {
 
 
 // editing article 
-const changearticleInfo = async (req, res) => {
+const changeArticleInfo = async (req, res) => {
     const articleTitle = req.params.title
     const { categoryID, userID, title, text, date } = req.body;
     try {
@@ -45,7 +45,7 @@ const changearticleInfo = async (req, res) => {
 
 
 // Getting an article with its title
-const getOnearticle = async (req, res) => {
+const getOneArticle = async (req, res) => {
     const articleTitle = req.params;
     try {
         const onlyArticle = await Article.findOne(articleTitle).populate("userID");
@@ -103,9 +103,8 @@ const lastArticles = async (req, res) => {
 
 module.exports = {
     addArticle,
-    changearticleInfo,
-
-    getOnearticle,
+    changeArticleInfo,
+    getOneArticle,
     lastArticles,
     articleID
 }
