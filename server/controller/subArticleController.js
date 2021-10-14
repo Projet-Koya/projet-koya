@@ -75,10 +75,27 @@ const modifyASubArticle = async (req, res) => {
 
 
 
+const subArticleTitles = async ( req, res ) => {
+    try {
+        titleSubarticle = await SubArticle.find();
+        res.status(201).json({
+            message:"Your subArticle titles",
+            data: titleSubarticle
+        })
+    } catch (err) {
+        return res.status(400).json({
+            message:"Unable to find"
+        })
+    }
+}
+
+
+
 
 module.exports = {
     addSubArticle,
     getSubArticle,
     deleteSubArticle,
     modifyASubArticle,
+    subArticleTitles
 };
