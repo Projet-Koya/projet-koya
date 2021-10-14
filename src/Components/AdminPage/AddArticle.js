@@ -92,9 +92,10 @@ export default function PostNewArticle() {
 
            
 
-            <SubArticle/>
+            {/* <SubArticle/> */}
 
-        </div></div>
+        </div>
+        </div>
         </>
     );
 }
