@@ -1,9 +1,8 @@
 import React from 'react'
 import CategorySlider from '../Components/Carousels/CategoryCarousel'
-import ArticleCarousel from '../Components/Carousels/ArticleCaousel';
+import ArticleCarousel from '../Components/Carousels/ArticleCarousel';
 import "./css/Home.css"
 import Image from "../assets/koya-illustration-impact .svg"
-
 
 const Home = () => {
     return(
