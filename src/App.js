@@ -10,7 +10,7 @@ import SubArticle from './Components/SubArticle';
 import AddAdmin from "./Components/AdminPage/AddAdmin";
 import AddArticle from "./Components/AdminPage/AddArticle";
 import AllArticles from './Components/AllArticles';
-
+import Footer from './Components/Footer';
 
 
 export const LoginContext = React.createContext();
@@ -43,7 +43,7 @@ const App = () => {
             <Login />
           </Route>
           <Route path="/admin">
-            <Admin />
+            {/* <Admin /> */}
           </Route>
           <Route path="/add-admin">
             <AddAdmin />
@@ -66,6 +66,7 @@ const App = () => {
             <Home />
           </Route>
         </Switch>
+      <Footer />
       </BrowserRouter>
       {/* <Footer /> */}
     </LoginContext.Provider>

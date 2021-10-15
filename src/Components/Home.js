@@ -6,7 +6,7 @@ import Image from "../assets/koya-illustration-impact .svg"
 
 const Home = () => {
     return(
-        <div className="container">
+        <div className="md:container md:mx-auto">
             <div className="content flex">
                 <div className="w-1/2">
                     <img src={Image} alt=""/>
@@ -25,4 +25,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default Home;
