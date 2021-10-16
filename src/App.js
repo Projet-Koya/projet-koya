@@ -20,6 +20,7 @@ const App = () => {
   const [EmailUser, setUserEmail] = useState();
   const [userID, setUserID] = useState();
   const [articleID, setArticleID] = useState();
+  const [articleTitle, setArticleTitle] = useState()
   const [categoryID, setCategoryID] = useState();
 
   const value = {
@@ -32,7 +33,9 @@ const App = () => {
     articleID: articleID,
     setArticleID: setArticleID,
     categoryID: categoryID,
-    setCategoryID: setCategoryID
+    setCategoryID: setCategoryID,
+    articleTitle: articleTitle,
+    setArticleTitle: setArticleTitle
   };
   return (
     <LoginContext.Provider value={value}>

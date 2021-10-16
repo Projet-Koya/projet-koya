@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 import "./css/Article.css";
 import DisplayComments from './DisplayComments';
 import WriteNewComment from './WriteNewComment';
+import SubArticleView from './SubArticleView';
 
 
 const Article = () => {
@@ -43,6 +44,7 @@ const Article = () => {
         setData(res);
         console.log(res);
         LoginStatus.setArticleID(res.data._id);
+        LoginStatus.setArticleTitle(res.data.title)
         setIsLoading(false);
       });
   }, []);
@@ -59,6 +61,7 @@ const Article = () => {
             </ReadMore> */}
           </p></div>
         </div>
+        <SubArticleView/>
         {/* <DisplayComments /> */}
         {/* <WriteNewComment /> */}
         {/* {LoginStatus.LogStatus === true ? <SubArticle/> : null} */}

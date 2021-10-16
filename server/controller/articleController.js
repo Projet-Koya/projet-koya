@@ -55,11 +55,11 @@ const getOnearticle = async (req, res) => {
             message: "Article that you are clicked",
             data: onlyArticle
 
-        })
+        });
     } catch (err) {
         return res.status(400).json({
             message: "Article that you are searching for doesnt exist"
-        })
+        });
     }
 };
 
@@ -86,11 +86,11 @@ const lastArticles = async (req, res) => {
     try {
         const getAllArticle = await Article.find();
 
-        const lastArticles = getAllArticle.sort(function (a, b) { return a.createdAt - b.createdAt }).slice(0, 4);
+        const lastArticles = getAllArticle.sort(function (a, b) { return a.createdAt - b.createdAt; }).slice(0, 4);
         res.status(201).json({
             message: "List of last articles",
             data: lastArticles
-        })
+        });
 
 
     } catch (err) {
@@ -101,51 +101,51 @@ const lastArticles = async (req, res) => {
 };
 
 // Deleting an article
-const deleteArticle = async ( req, res ) => {
+const deleteArticle = async (req, res) => {
     const title = req.body.title;
     try {
-        await Article.deleteOne({ title : title});
+        await Article.deleteOne({ title: title });
         res.status(201).json({
             message: "Your article deleted",
-        })
+        });
     } catch (err) {
         res.status(400).json({
             message: "Unable to delete you article"
-        })
+        });
     }
-}
+};
 
 // Getting all the Articles 
 
-const AllArticles = async( req,res )=> {
+const AllArticles = async (req, res) => {
     try {
         const ArticleList = await Article.find();
         res.status(201).json({
-            message:"List of your Articles",
+            message: "List of your Articles",
             data: ArticleList,
-        })
-    } catch(err) {
+        });
+    } catch (err) {
         res.status(400).json({
-            message:"We couldn't find the articles you want",
-        })
+            message: "We couldn't find the articles you want",
+        });
     }
-}
+};
 
 
-const OneCategoryArticle = async(req,res)=> {
+const OneCategoryArticle = async (req, res) => {
     const categoryID = req.params;
-    try{
+    try {
         const ArticleCatId = await Article.find(categoryID);
         res.status(201).json({
-            message:"Your articles byt Categiry id",
+            message: "Your articles byt Categiry id",
             data: ArticleCatId
-        })
-    } catch(err) {
+        });
+    } catch (err) {
         return res.status(400).json({
-            message:"Couldn's find you Articles with your categoryId"
-        })
+            message: "Couldn's find you Articles with your categoryId"
+        });
     }
-}
+};
 
 
 
