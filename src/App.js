@@ -20,7 +20,7 @@ const App = () => {
   const [EmailUser, setUserEmail] = useState();
   const [userID, setUserID] = useState();
   const [articleID, setArticleID] = useState();
-  const [articleTitle, setArticleTitle] = useState()
+  const [articleTitle, setArticleTitle] = useState();
   const [categoryID, setCategoryID] = useState();
 
   const value = {
