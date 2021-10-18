@@ -38,7 +38,7 @@ export default function SubArticleView() {
                 setIsLoading(false);
             });
     }, []);
-
+    console.log(subArticles)
     if (isLoading === true) { return null; }
     return (
         <div>

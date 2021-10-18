@@ -59,7 +59,7 @@ const App = () => {
             <SubArticle />
 
           </Route>
-          <Route path="/article/:title">
+          <Route path="/article/:id">
             <Article />
           </Route>
           <Route path="/all-articles/:categoryID">

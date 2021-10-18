@@ -68,7 +68,7 @@ const getOnearticle = async (req, res) => {
 const articleID = async (req, res) => {
     const articlByeId = req.params.id;
     try {
-        const onlyId = await Article.findById(articlByeId).populate("userID");
+        const onlyId = await Article.findById(articlByeId);
         res.status(201).json({
             message: "Article that you are searching by it's ID",
             data: onlyId

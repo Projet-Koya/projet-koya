@@ -27,9 +27,9 @@ const addSubArticle = async (req, res) => {
 const getSubArticle = async (req, res) => {
     const getArticle = req.params;
     try {
-        console.log(getArticle);
-        const findArticle = await SubArticle.findOne(getArticle);
-        console.log(findArticle);
+        console.log("getArticle :", getArticle);
+        const findArticle = await SubArticle.findOne({ title: getArticle });
+        console.log("findArticle :", findArticle);
         res.status(201).json({
             message: "you get your article",
             data: findArticle
@@ -91,6 +91,22 @@ const subArticleTitles = async (req, res) => {
     }
 };
 
+// getting subarticles with its articles id
+const articleSubarticle = async (req, res) => {
+    const articleid = req.params.articleID;
+    try {
+        const subAr = await SubArticle.find({ articleid });
+        res.status(201).json({
+            message: "You sub articles by their article id",
+            data: subAr
+        });
+    } catch (err) {
+        return res.status(400).json({
+            message: "Sorry we couldn't find the sub articles you are looking for"
+        });
+    }
+};
+
 
 
 
@@ -99,5 +115,6 @@ module.exports = {
     getSubArticle,
     deleteSubArticle,
     modifyASubArticle,
-    subArticleTitles
+    subArticleTitles,
+    articleSubarticle
 };

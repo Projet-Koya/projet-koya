@@ -12,8 +12,8 @@ export default function AllArticles() {
 
     const history = useHistory();
 
-    const handleClick = (articleTitle) => {
-        history.push(`/article/${articleTitle}`);
+    const handleClick = (articleID) => {
+        history.push(`/article/${articleID}`);
     };
 
 
@@ -27,7 +27,7 @@ export default function AllArticles() {
                 setIsLoading(false);
             });
     }, []);
-    console.log("test");
+
     if (isLoading === true) { return null; }
     return (
         <div className="custom-margin grid grid-cols-2 gap-4 my-16 ">
@@ -37,7 +37,7 @@ export default function AllArticles() {
 
                         <div className="container flex flex-col shadow-2xl py-8 px-16">
                             <div>
-                                <h2 onClick={() => handleClick(article.title)} className="title-font hover:bg-green-200">{article.title}</h2>
+                                <h2 onClick={() => handleClick(article._id)} className="title-font hover:bg-green-200">{article.title}</h2>
                             </div>
                             <div dangerouslySetInnerHTML={{ __html: article.text }}></div>
                             {/* <h2 onClick={() => handleClick(article.title)}>{article.title}</h2> */}
