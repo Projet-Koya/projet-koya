@@ -72,6 +72,7 @@ const Article = () => {
   if (isLoading === true) { return null; }
   return (
     <>
+
       {/* <div classNameName="container flex justify-center mt-10 ">
         <div classNameName="flex flex-col mt-10 w-1/2 ">
           <h1 classNameName="animate-pulse flex justify-center text-3xl">{data.data.title}</h1>
