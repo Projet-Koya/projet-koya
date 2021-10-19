@@ -70,7 +70,7 @@ const CategorySlider = () => {
             <div className="bg-gray-100">
               <div className="shadow-md rounded-lg">
                 <div className="p-4">
-                  <h4 className="text-lg my-5">{category.name}</h4>
+                  <h4 className="text-lg font-semibold my-5">{category.name}</h4>
                   <img
                     src={`http://localhost:3001/${category.picture}`}
                     alt=""

@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import "../css/ArticleCarousel.css"
+import { useHistory } from 'react-router-dom';
 
 const ArticleCarousel = () => {
     const settings = {
@@ -54,6 +55,10 @@ const ArticleCarousel = () => {
 
       getLastArticles();
     }, []);
+    const history = useHistory();
+    const handleClick = (articleTitle) => {
+      history.push(`/article/${articleTitle}`);
+  };
     
     return (
         <div className="container custom-width">
@@ -65,11 +70,11 @@ const ArticleCarousel = () => {
                             <div className="bg-blue-100">
                                 <div className="shadow-md rounded-md overflow-hidden">
                                     <div className="p-4">
-                                        <h4 className="text-xl font-semibold mb-2" >Title : {article.title}</h4>
+                                        <h4 onClick={() => handleClick(article.title)} className="text-xl font-semibold mb-2 hover:bg-green-200" > {article.title}</h4>
                                         <div dangerouslySetInnerHTML={{ __html: article.text }}>
               </div>
                                         {/* <p className="mb-4">{article.text}</p> */}
-                                        <button className="bg-primary text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">Plus</button>
+                                        {/* <button className="bg-primary text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">Plus</button> */}
                                     </div>
                                 </div>
                             </div>

@@ -16,6 +16,10 @@ export default function AllArticles() {
         history.push(`/article/${articleTitle}`);
     };
 
+    const onClick = ()=>{
+        history.push("/")
+    }
+
 
     useEffect(() => {
         console.log("test");
@@ -30,6 +34,8 @@ export default function AllArticles() {
     console.log("test");
     if (isLoading === true) { return null; }
     return (
+        <div>
+            <div className="mt-8 ml-8 "> <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" onClick={onClick} >Back Home</button> </div>
         <div className="custom-margin grid grid-cols-2 gap-4 my-16 ">
             {
                 articles.map(article => {
@@ -42,11 +48,12 @@ export default function AllArticles() {
                         <div dangerouslySetInnerHTML={{ __html: article.text }}></div>
                             {/* <h2 onClick={() => handleClick(article.title)}>{article.title}</h2> */}
                             {/* <p>{article.text}</p> */}
-
+                            
                         </div>
                     );
                 })
             }
+        </div>
         </div>
     );
 }

@@ -8,7 +8,7 @@ console.log(user);
 
 const navigation = [
   { name: 'Home', href: '/blog', current: true },
-  { name: 'Articles', href: '/articles', current: false },
+  // { name: 'Articles', href: '/articles', current: false },
   { name: 'Admin', href: '/admin', current: false },
   { name: 'Login', href: '/login', current: false },
 ]
