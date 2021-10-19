@@ -77,7 +77,7 @@ export default function SubArticle() {
         <>
         <Sidebar />
         <div className="container">
-            <h3 className="text-6xl bg-green-500 text-center py-8">Post Sub Article To That Article</h3>
+            <h3 className="text-6xl text-center py-8">Publier un sous-article</h3>
             <div className="left-margin my-4">
 
             <form onSubmit={handleSubmit(onSubmit)}>

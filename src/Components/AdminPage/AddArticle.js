@@ -64,7 +64,7 @@ export default function PostNewArticle() {
         <Sidebar />
         <div className="container">
             <div className="container">
-            <h3 className="text-6xl bg-green-500 text-center py-8">Poster un nouvel article</h3>
+            <h3 className="text-6xl  text-center py-8">Poster un nouvel article</h3>
             </div>
             <div className="left-margin">
 

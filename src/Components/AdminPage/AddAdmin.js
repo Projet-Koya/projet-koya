@@ -44,7 +44,9 @@ export default function Dashboard() {
 			<Sidebar />
 			<div className="container ">
 				<div className="container">
-					<h1 className="text-6xl text-center py-8">Add an admin</h1>
+					<h1 className="text-6xl text-center py-8">Ajouter un admin
+					</h1>
+					
 				</div>
 				<div className="left-margin">
 					<form className="flex flex-col ml-8" onSubmit={handleSubmit(onSubmit)}>

@@ -48,8 +48,8 @@ const Admin = () => {
             </div>
             <h2 className="font-1 text-5xl my-8 ml-6 ">Bonjour,{user.name} </h2>
             <div className="content ml-10 mt-16">
-            <p className="font-name my-6 text-3xl">Name: {user.name}</p>
-            <p className="font-name my-6 text-3xl">Last Name: {user.lastName}</p>
+            <p className="font-name my-6 text-3xl">Prénom: {user.name}</p>
+            <p className="font-name my-6 text-3xl">Nom: {user.lastName}</p>
             <p className="font-name my-6 text-3xl">Email: {user.email}</p>
                 
             </div>

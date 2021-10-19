@@ -7,10 +7,10 @@ let user = JSON.parse(localStorage.getItem("user-info"));
 console.log(user);
 
 const navigation = [
-	{ name: "Home", href: "/blog", current: true },
-	{ name: "Articles", href: "/articles", current: false },
+	{ name: "Accueil", href: "/blog", current: true },
+	// { name: "Articles", href: "/articles", current: false },
 	{ name: "Admin", href: "/admin", current: false },
-	{ name: "Login", href: "/login", current: false },
+	{ name: "Connexion", href: "/login", current: false },
 ];
 
 function classNames(...classes) {
