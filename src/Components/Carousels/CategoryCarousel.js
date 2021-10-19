@@ -61,6 +61,7 @@ const CategorySlider = () => {
 
 	const history = useHistory();
 
+<<<<<<< HEAD
 	return (
 		<div className="container custom-width2 my-5 ml-6">
 			<h2 className="text-2xl font-semibold ml-4 mb-2">Categories </h2>
@@ -95,6 +96,37 @@ const CategorySlider = () => {
 			</Slider>
 		</div>
 	);
+=======
+  return (
+    <div className="container custom-width2 my-5 ml-6">
+      <h2 className="text-2xl font-semibold ml-4 mb-2">Categories </h2>
+      <Slider {...settings}>
+        {categories.map((category) => {
+          return (
+            <div className="bg-gray-100">
+              <div className="shadow-md rounded-lg">
+                <div className="p-4">
+                  <h4 className="text-lg font-semibold my-5">{category.name}</h4>
+                  <img
+                    src={`http://localhost:3001/${category.picture}`}
+                    alt=""
+                    style={{
+                      width: "250px",
+                      height: "40vh",
+                      objectFit: "cover",
+                    }}
+                  />
+                  <button className="bg-primary my-3 text-black font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" onClick={() => handleClick(category._id)}>Plus...</button>
+                </div>
+              </div>
+            </div>
+          );
+        }
+        )}
+      </Slider>
+    </div>
+  );
+>>>>>>> 72ae676c9410533edf8f52cdb758c94356ce37c0
 };
 
 export default CategorySlider;

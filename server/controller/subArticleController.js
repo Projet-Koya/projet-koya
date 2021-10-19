@@ -88,6 +88,7 @@ const subArticleTitles = async (req, res) => {
 };
 
 // getting subarticles with its articles id
+<<<<<<< HEAD
 const articleSubarticle = async (req, res) => {
 	const articleid = req.params.articleID;
 	try {
@@ -103,6 +104,60 @@ const articleSubarticle = async (req, res) => {
 	}
 };
 
+=======
+// const articleSubarticle = async (req, res) => {
+//     const articleid = req.params.articleID;
+//     try {
+//         const subAr = await SubArticle.find({ articleid });
+//         res.status(201).json({
+//             message: "You sub articles by their article id",
+//             data: subAr
+//         });
+//     } catch (err) {
+//         return res.status(400).json({
+//             message: "Sorry we couldn't find the sub articles you are looking for"
+//         });
+//     }
+// };
+
+
+
+// const subArticleTitles = async ( req, res ) => {
+//     try {
+//         titleSubarticle = await SubArticle.find();
+//         res.status(201).json({
+//             message:"Your subArticle titles",
+//             data: titleSubarticle
+//         })
+//     } catch (err) {
+//         return res.status(400).json({
+//             message:"Unable to find"
+//         })
+//     }
+// }
+
+
+// getting subarticles with its articles id
+
+const articleSubarticle = async (req,res)=> {
+    const articleid = req.params.articleID
+    try{
+        const subAr = await SubArticle.findOne({articleid})
+        res.status(201).json({
+            message:"You sub articles by their article id",
+            data: subAr
+        })
+    } catch(err) {
+        return res.status(400).json({
+            message:"Sorry we couldn't find the sub articles you are looking for"
+        })
+    }
+}
+
+
+
+
+>>>>>>> 72ae676c9410533edf8f52cdb758c94356ce37c0
 module.exports = {
 	addSubArticle,
 	getSubArticle,
