@@ -20,7 +20,7 @@ const App = () => {
   const [EmailUser, setUserEmail] = useState();
   const [userID, setUserID] = useState();
   const [articleID, setArticleID] = useState();
-  const [articleTitle, setArticleTitle] = useState()
+  const [articleTitle, setArticleTitle] = useState();
   const [categoryID, setCategoryID] = useState();
 
   const value = {
@@ -59,7 +59,7 @@ const App = () => {
             <SubArticle />
 
           </Route>
-          <Route path="/article/:title">
+          <Route path="/article/:id">
             <Article />
           </Route>
           <Route path="/all-articles/:categoryID">
